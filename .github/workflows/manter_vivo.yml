@@ -1,0 +1,20 @@
+name: Manter Sites Cejusc Acordados
+
+on:
+  schedule:
+    # Roda a cada 12 minutos, de Segunda a Sexta
+    # 12:00 às 20:00 UTC = 09:00 às 17:00 Horário de Brasília
+    - cron: '*/12 12-20 * * 1-5'
+  workflow_dispatch: # Permite rodar manualmente para testar
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Acessando os sistemas do CEJUSC
+        run: |
+          curl -I https://fusor.onrender.com/
+          curl -I https://extrator-pauta-cejusc.onrender.com/
+          curl -I https://nomeacao-nova-web.onrender.com/
+          curl -I https://dias-web-3.onrender.com/
+          curl -I https://gerador-cejusc.onrender.com/
