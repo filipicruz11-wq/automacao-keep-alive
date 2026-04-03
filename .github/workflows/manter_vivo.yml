@@ -2,9 +2,10 @@ name: Manter Sites Cejusc Acordados
 
 on:
   schedule:
-    # Roda a cada 12 minutos, de Segunda a Sexta
-    # 12:00 às 20:00 UTC = 09:00 às 17:00 Horário de Brasília
-    - cron: '*/12 12-20 * * 1-5'
+    # Roda a cada 12 minutos
+    # Manhã: 12:00 às 14:00 UTC (09h às 11h Brasília)
+    # Tarde: 16:00 às 19:00 UTC (13h às 16h Brasília)
+    - cron: '*/12 12-14,16-19 * * 1-5'
   workflow_dispatch: # Permite rodar manualmente para testar
 
 jobs:
